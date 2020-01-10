@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: ansible-role-python
+      vars:
+        python_version: 3.6
