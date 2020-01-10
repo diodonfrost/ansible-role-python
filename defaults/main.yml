@@ -1,2 +1,12 @@
 ---
 # defaults file for ansible-role-python
+
+# The version of Python to install
+# Support 3.4, 3.5, 3.6, 3.7, 3.8
+python_version: 3.7.6
+
+# The location where to download the Python archive
+python_tarball_url: https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz
+
+# Install python-pip
+ensure_pip: install

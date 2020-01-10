@@ -1,0 +1,35 @@
+---
+# tasks file for compile and install Python on Linux
+
+- name: Linux | Install Python dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ package_requirements }}"
+
+# This task avoids downloading Python archive every time
+- name: Linux | Check if Python is present with the right version
+  command: "{{ python_path }}/python{{ python_version }} --version"
+  register: command_result
+  ignore_errors: yes
+  changed_when: false
+
+- name: Linux | Unpacking Python
+  unarchive:
+    src: "{{ python_tarball_url }}"
+    dest: "/tmp/Python-{{ python_version }}"
+    remote_src: yes
+  when: command_result.rc =! 0
+  register: python_source_unpack
+
+- name: Linux | Configure Python source
+  command: "./configure --enable-optimizations --with-ensurepip={{ ensure_pip }}"
+  args:
+    chdir: "/tmp/python-{{ python_version }}"
+  when: python_source_unpack|changed
+
+- name: Linux | Install Python
+  shell: make && make altinstall
+  args:
+    chdir: "/tmp/python-{{ python_version }}"
+  when: python_source_unpack|changed

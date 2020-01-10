@@ -1,2 +1,8 @@
 ---
 # tasks file for ansible-role-python
+
+- name: Linux/Unix | Include OS specific variables.
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: Install Python
+  include_tasks: "setup-{{ ansible_system }}.yml"
