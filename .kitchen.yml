@@ -130,28 +130,6 @@ platforms:
       image: diodonfrost/amazonlinux-1-ansible
       platform: centos
 
-  # Opensuse
-  - name: opensuse-15.1
-    driver:
-      image: diodonfrost/opensuse-15.1-ansible
-      platform: opensuse
-  - name: opensuse-15
-    driver:
-      image: diodonfrost/opensuse-15-ansible
-      platform: opensuse
-  - name: opensuse-42.3
-    driver:
-      image: diodonfrost/opensuse-42.3-ansible
-      platform: opensuse
-  - name: opensuse-42.2
-    driver:
-      image: diodonfrost/opensuse-42.2-ansible
-      platform: opensuse
-  - name: opensuse-13.2
-    driver:
-      image: diodonfrost/opensuse-13.2-ansible
-      platform: opensuse
-
   # Archlinux
   - name: archlinux-rolling
     driver:
