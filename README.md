@@ -1,38 +1,153 @@
-Role Name
-=========
+# ansible-role-python
 
-A brief description of the role goes here.
+[![Build Status](https://travis-ci.org/diodonfrost/ansible-role-python.svg?branch=master)](https://travis-ci.org/diodonfrost/ansible-role-python)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.python-660198.svg)](https://galaxy.ansible.com/diodonfrost/python)
 
-Requirements
-------------
+Ansible role for compile and install Python 3.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Requirements
 
-Role Variables
---------------
+This role was developed using Ansible 2.5 Backwards compatibility is not guaranteed.
+Use `ansible-galaxy install diodonfrost.python` to install the role on your system.
+*   Ansible >= 2.5
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Supported platforms:
 
-Dependencies
-------------
+```yaml
+- name: EL
+  versions:
+    - 8
+    - 7
+    - 6
+- name: Fedora
+  versions:
+    - 32
+    - 31
+    - 30
+    - 29
+    - 28
+    - 27
+    - 26
+- name: Debian
+  versions:
+    - buster
+    - stretch
+    - jessie
+- name: Ubuntu
+  versions:
+    - disco
+    - bionic
+    - xenial
+    - trusty
+- name: OracleLinux
+  versions:
+    - 8
+    - 7
+    - 6
+- name: Amazon
+  versions:
+    - 2017.12
+    - 2016.03
+- name: ArchLinux
+  versions:
+    - any
+```
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Role Variables
 
-Example Playbook
-----------------
+This role has multiple variables. The defaults for all these variables are the following:
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+---
+# defaults file for ansible-role-python
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# The version of Python to install
+python_version: 3.7.6
 
-License
--------
+# The location where to download the Python archive
+python_tarball_url: https://www.python.org/ftp/python/{{ python_version }}/Python-{{ python_version }}.tgz
 
-BSD
+# Install python-pip
+# Valid values: install, upgrade
+ensure_pip: install
 
-Author Information
-------------------
+# Allow N jobs at once
+# Default use number of vcpu on the system
+make_num_threads: "{{ ansible_processor_vcpus }}"
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+# Clean dependency use for python compilation
+clean_package_requirements: false
+```
+
+## Dependencies
+
+None
+
+## Example Playbook
+
+This role can also install a specific version of Python.
+
+```yaml
+---
+- hosts: localhost
+  become: true
+  roles:
+    - role: diodonfrost.python
+      vars:
+        - python_version: 3.7.6
+```
+
+Install Python 3.7.6 and Python 3.6.10
+
+```yaml
+---
+- hosts: localhost
+  become: true
+  roles:
+    - role: diodonfrost.python
+      vars:
+        - python_version: 3.7.6
+    - role: diodonfrost.python
+      vars:
+        - python_version: 3.6.10
+```
+
+## Local Testing
+
+The preferred way of locally testing the role is to use Docker. You will have to install Docker on your system.
+For all our tests we use test-kitchen.
+
+Next install test-kitchen:
+
+```shell
+# Install dependencies
+gem install bundler
+bundle install
+```
+
+### Testing with Docker
+
+```shell
+# List all tests with kitchen
+kitchen list
+
+# test python 3.7 install on CentOS 8
+kitchen test python-37-centos-8
+
+# for development, create environment
+kitchen create python-37-centos-8
+
+# Apply ansible playbook
+kitchen converge python-37-centos-8
+
+# Apply inspec tests
+kitchen verify python-37-centos-8
+```
+
+## License
+
+Apache 2
+
+## Author Information
+
+This role was created in 2020 by diodonfrost.
