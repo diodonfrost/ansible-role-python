@@ -1,2 +1,16 @@
 ---
 python_path: /usr/bin
+package_requirements:
+  - bzip2
+  - gcc
+  - gdbm
+  - make
+  - haskell-uuid
+  - ncurses
+  - libffi
+  - openssl
+  - readline
+  - sqlite
+  - tk
+  - xz
+  - zlib
