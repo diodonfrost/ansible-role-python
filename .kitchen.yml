@@ -158,6 +158,7 @@ platforms:
       image: diodonfrost/archlinux-rolling-ansible
       platform: arch
       provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
         - systemctl enable sshd
 
 suites:
