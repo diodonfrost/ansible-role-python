@@ -1,6 +1,6 @@
 # Check if python is functionnal
 
-python_path = '/usr/bin/python --version'
+python_path = '/usr/local/bin/python3 --version'
 
 control 'java-01' do
   impact 1.0
