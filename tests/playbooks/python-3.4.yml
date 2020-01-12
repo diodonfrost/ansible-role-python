@@ -4,4 +4,4 @@
   roles:
     - role: ansible-role-python
       vars:
-        python_version: 3.4
+        python_version: 3.4.10
