@@ -1,2 +1,17 @@
 ---
-python_path: /usr/bin
+python_path: /usr/local
+package_requirements:
+  - gcc
+  - g++
+  - make
+  - libbz2-dev
+  - libffi-dev
+  - libgdbm-dev
+  - liblzma-dev
+  - libncurses5-dev
+  - libreadline-dev
+  - libsqlite3-dev
+  - libssl-dev
+  - tk-dev
+  - uuid-dev
+  - zlib1g-dev
