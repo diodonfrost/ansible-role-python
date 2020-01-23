@@ -22,19 +22,18 @@
     dest: /tmp
     remote_src: yes
   when: command_result.rc > 0
-  register: python_source_unpack
 
 - name: Linux | Configure Python source
   command: "./configure --enable-optimizations --with-ensurepip={{ ensure_pip }} --prefix={{ python_path }}"
   args:
     chdir: "/tmp/Python-{{ python_version }}"
-  when: python_source_unpack.changed or command_result.rc > 0
+  when: command_result.rc > 0
 
 - name: Linux | Compile and install Python
   shell: "make PROFILE_TASK='-m test.regrtest --pgo -j{{ make_num_threads }}' -j{{ make_num_threads }} && make install"
   args:
     chdir: "/tmp/Python-{{ python_version }}"
-  when: python_source_unpack.changed or command_result.rc > 0
+  when: command_result.rc > 0
 
 - name: Linux | Clean dependency use for python compilation
   package:

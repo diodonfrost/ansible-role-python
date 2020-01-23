@@ -1,6 +1,6 @@
 # ansible-role-python
 
-[![Build Status](https://travis-ci.org/diodonfrost/ansible-role-python.svg?branch=master)](https://travis-ci.org/diodonfrost/ansible-role-python)
+[![Build Status](https://travis-ci.com/diodonfrost/ansible-role-python.svg?branch=master)](https://travis-ci.com/diodonfrost/ansible-role-python)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.python-660198.svg)](https://galaxy.ansible.com/diodonfrost/python)
 
 Ansible role for compile and install Python 3.
