@@ -16,7 +16,7 @@ before_install:
   - ansible --version
 
 script:
-  - ansible-lint tasks/*
+  - ansible-lint ./
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
