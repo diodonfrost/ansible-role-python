@@ -1,5 +1,4 @@
 ---
-python_path: /usr/local
 package_requirements:
   - gcc
   - g++

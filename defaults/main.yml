@@ -12,6 +12,9 @@ python_tarball_url: https://www.python.org/ftp/python/{{ python_version }}/Pytho
 # Valid values: install, upgrade
 ensure_pip: install
 
+# Define the root directory for the Python install location,
+python_path: /usr/local
+
 # Allow N jobs at once
 # Default use number of vcpu
 make_num_threads: "{{ ansible_processor_vcpus }}"
