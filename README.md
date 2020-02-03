@@ -94,7 +94,7 @@ This role can also install a specific version of Python.
   roles:
     - role: diodonfrost.python
       vars:
-        - python_version: 3.7.6
+        python_version: 3.7.6
 ```
 
 Install Python 3.7.6 and Python 3.6.10
@@ -106,10 +106,10 @@ Install Python 3.7.6 and Python 3.6.10
   roles:
     - role: diodonfrost.python
       vars:
-        - python_version: 3.7.6
+        python_version: 3.7.6
     - role: diodonfrost.python
       vars:
-        - python_version: 3.6.10
+        python_version: 3.6.10
 ```
 
 ## Local Testing
