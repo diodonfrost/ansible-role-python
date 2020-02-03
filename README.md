@@ -62,6 +62,7 @@ This role has multiple variables. The defaults for all these variables are the f
 # defaults file for ansible-role-python
 
 # The version of Python to install
+# Valid values: 3.4, 3.5, 3.6, 3.7, 3.8
 python_version: 3.7.6
 
 # The location where to download the Python archive
@@ -71,8 +72,11 @@ python_tarball_url: https://www.python.org/ftp/python/{{ python_version }}/Pytho
 # Valid values: install, upgrade
 ensure_pip: install
 
+# Define the root directory for the Python install location,
+python_path: /usr/local
+
 # Allow N jobs at once
-# Default use number of vcpu on the system
+# Default use number of vcpu
 make_num_threads: "{{ ansible_processor_vcpus }}"
 
 # Clean dependency use for python compilation
