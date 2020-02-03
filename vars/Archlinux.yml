@@ -1,5 +1,5 @@
 ---
-python_path: /usr/bin
+python_path: /usr/local/bin
 package_requirements:
   - bzip2
   - gcc
