@@ -17,6 +17,14 @@
     - ansible_os_family == "Debian"
     - command_result.rc > 0
 
+- name: Archlinux | Update pacman cache
+  pacman:
+    update_cache: yes
+  changed_when: false
+  when:
+    - ansible_os_family == "Archlinux"
+    - command_result.rc > 0
+
 - name: Linux | Install Python dependencies
   package:
     name: "{{ item }}"
