@@ -9,6 +9,14 @@
   changed_when: false
   failed_when: false
 
+- name: Debian | Update apt cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when:
+    - ansible_os_family == "Debian"
+    - command_result.rc > 0
+
 - name: Linux | Install Python dependencies
   package:
     name: "{{ item }}"
