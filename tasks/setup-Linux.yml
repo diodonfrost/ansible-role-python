@@ -42,7 +42,7 @@
   when: command_result.rc > 0
 
 - name: Linux | Compile and install Python
-  shell: "make PROFILE_TASK='-m test.regrtest --pgo -j{{ make_num_threads }}' -j{{ make_num_threads }} && make install"
+  shell: "make PROFILE_TASK='-m test.regrtest --pgo -j{{ make_num_threads }}' -j{{ make_num_threads }} && make altinstall"
   args:
     chdir: "/tmp/Python-{{ python_version }}"
   when: command_result.rc > 0
