@@ -16,7 +16,7 @@ ensure_pip: install
 enable_optimizations: true
 
 # Define the root directory for the Python install location,
-python_path: /usr/local
+python_path: "/usr/local/python{{ python_version[:3] }}"
 
 # Allow N jobs at once
 # Default use number of vcpu

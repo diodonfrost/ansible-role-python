@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 18 * * sun'
+    - cron: '0 18 * * sat'
 
 jobs:
   test:
