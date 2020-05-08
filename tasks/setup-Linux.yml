@@ -32,7 +32,11 @@
   when: command_result.rc > 0
 
 - name: Linux | Configure Python source
-  command: "./configure --enable-optimizations --with-lto --with-system-ffi --with-ensurepip={{ ensure_pip }} --prefix={{ python_path }}"
+  shell: |
+    ./configure {{ enable_optimizations | ternary('--enable-optimizations --with-lto','') }} \
+    --with-system-ffi \
+    --with-ensurepip={{ ensure_pip }} \
+    --prefix={{ python_path }}
   args:
     chdir: "/tmp/Python-{{ python_version }}"
   when: command_result.rc > 0
