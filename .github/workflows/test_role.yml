@@ -25,6 +25,7 @@ jobs:
         playbook:
           - python-3.8
           - python-3.7
+          - python-3.6
 
     steps:
       - name: Checkout repository
