@@ -18,7 +18,6 @@ Supported platforms:
   versions:
     - 8
     - 7
-    - 6
 - name: Fedora
   versions:
     - 32
@@ -43,11 +42,9 @@ Supported platforms:
   versions:
     - 8
     - 7
-    - 6
 - name: Amazon
   versions:
     - 2017.12
-    - 2016.03
 - name: ArchLinux
   versions:
     - any

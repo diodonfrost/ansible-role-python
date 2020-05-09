@@ -12,7 +12,6 @@ galaxy_info:
       versions:
         - 8
         - 7
-        - 6
     - name: Fedora
       versions:
         - 31
@@ -32,13 +31,9 @@ galaxy_info:
         - bionic
         - xenial
         - trusty
-        - precise
-        - trusty
     - name: Amazon
       versions:
         - 2017.12
-        - 2016.03
-        - 2013.09
     - name: ArchLinux
       versions:
         - any
