@@ -1,0 +1,54 @@
+name: molecule
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 18 * * sat'
+
+jobs:
+  test:
+    name: ${{ matrix.distribution }} python ${{ matrix.python_version }}
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        distribution:
+          - centos-8
+          - centos-7
+          - fedora-32
+          - fedora-31
+          - fedora-30
+          - ubuntu-20.04
+          - ubuntu-18.04
+          - ubuntu-16.04
+          - debian-10
+          - debian-9
+          - oraclelinux-8
+          - oraclelinux-7
+          - amazonlinux-2
+          - archlinux-rolling
+        python_version:
+          - 3.8.5
+          - 3.7.6
+          - 3.6.10
+        exclude:
+          - {distribution: "fedora-32", python_version: "3.6.10"}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Molecule
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Test Ansible role
+        run: |
+          distribution=${{ matrix.distribution }} python_version=${{ matrix.python_version }} molecule test
