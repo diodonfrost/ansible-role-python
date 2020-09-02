@@ -116,33 +116,28 @@ Install Python 3.7.6 and Python 3.6.10
 ## Local Testing
 
 The preferred way of locally testing the role is to use Docker. You will have to install Docker on your system.
-For all our tests we use test-kitchen.
-
-Next install test-kitchen:
-
-```shell
-# Install dependencies
-gem install bundler
-bundle install
-```
+For all our tests we use molecule.
 
 ### Testing with Docker
 
 ```shell
-# List all tests with kitchen
-kitchen list
+# Test ansible role with centos-8
+distribution=centos-8 molecule test
 
-# test python 3.7 install on CentOS 8
-kitchen test python-37-centos-8
+# Test ansible role with ubuntu-20.04
+distribution=ubuntu-20.04 molecule test
 
-# for development, create environment
-kitchen create python-37-centos-8
+# Test ansible role with alpine-rolling
+distribution=alpine-rolling molecule test
 
-# Apply ansible playbook
-kitchen converge python-37-centos-8
+# Create centos-7 instance
+distribution=centos-7 molecule create
 
-# Apply inspec tests
-kitchen verify python-37-centos-8
+# Apply role on centos-7 instance
+distribution=centos-7 molecule converge
+
+# Launch tests on centos-7 instance
+distribution=centos-7 molecule verify
 ```
 
 ## License

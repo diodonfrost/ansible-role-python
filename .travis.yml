@@ -12,7 +12,7 @@ env:
 
 before_install:
   # Install ansible
-  - python -m pip install ansible"${ANSIBLE_VERSION}" ansible-lint
+  - python -m pip install -r requirements.txt
   - ansible --version
 
 script:
