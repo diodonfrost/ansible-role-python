@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+driver:
+  name: docker
+platforms:
+  - name: ${distribution:-centos-8}
+    image: diodonfrost/${distribution:-centos-8}-ansible:latest
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: yes
+    pre_build_image: yes
+    env:
+      python_version: "${python_version:-3.8.5}"
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

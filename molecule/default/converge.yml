@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-role-python"
+      include_role:
+        name: "ansible-role-python"
+      vars:
+        python_version: "{{ ansible_env.python_version }}"

@@ -1,0 +1,14 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Linux | Python should be functionnal
+      command: /usr/local/python{{ ansible_env.python_version[:3] }}/bin/python{{ ansible_env.python_version[:3] }} --version
+      ignore_errors: yes
+      register: python_result
+
+    - name: Linux | Verify commands outputs
+      assert:
+        that:
+          - python_result.rc == 0
+        success_msg: "All tests passed"
