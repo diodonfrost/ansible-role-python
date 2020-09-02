@@ -36,6 +36,7 @@
   unarchive:
     src: "{{ python_tarball_url }}"
     dest: /tmp
+    mode: 0755
     remote_src: yes
   when: command_result.rc > 0
 
