@@ -1,6 +1,5 @@
 # ansible-role-python
 
-[![Build Status](https://travis-ci.com/diodonfrost/ansible-role-python.svg?branch=master)](https://travis-ci.com/diodonfrost/ansible-role-python)
 [![molecule](https://github.com/diodonfrost/ansible-role-python/workflows/molecule/badge.svg)](https://github.com/diodonfrost/ansible-role-python/actions)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.python-660198.svg)](https://galaxy.ansible.com/diodonfrost/python)
 
