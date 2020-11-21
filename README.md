@@ -115,29 +115,37 @@ Install Python 3.7.6 and Python 3.6.10
 
 ## Local Testing
 
-The preferred way of locally testing the role is to use Docker. You will have to install Docker on your system.
-For all our tests we use molecule.
+This project uses [Molecule](http://molecule.readthedocs.io/) to aid in the
+development and testing.
+
+To develop or test you'll need to have installed the following:
+
+* Linux (e.g. [Ubuntu](http://www.ubuntu.com/))
+* [Docker](https://www.docker.com/)
+* [Python](https://www.python.org/) (including python-pip)
+* [Ansible](https://www.ansible.com/)
+* [Molecule](http://molecule.readthedocs.io/)
 
 ### Testing with Docker
 
 ```shell
-# Test ansible role with centos-8
-distribution=centos-8 molecule test
+# Test ansible role with centos 8
+molecule test
 
-# Test ansible role with ubuntu-20.04
-distribution=ubuntu-20.04 molecule test
+# Test ansible role with ubuntu 20.04
+image=ansible-ubuntu:20.04 molecule test
 
-# Test ansible role with alpine-rolling
-distribution=alpine-rolling molecule test
+# Test ansible role with alpine latest
+image=ansible-alpine:latest molecule test
 
-# Create centos-7 instance
-distribution=centos-7 molecule create
+# Create centos 7 instance
+image=ansible-centos:7 molecule create
 
-# Apply role on centos-7 instance
-distribution=centos-7 molecule converge
+# Apply role on centos 7 instance
+image=ansible-centos:7 molecule converge
 
-# Launch tests on centos-7 instance
-distribution=centos-7 molecule verify
+# Launch tests on centos 7 instance
+image=ansible-centos:7 molecule verify
 ```
 
 ## License

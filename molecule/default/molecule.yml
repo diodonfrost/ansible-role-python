@@ -8,8 +8,8 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: ${distribution:-centos-8}
-    image: diodonfrost/${distribution:-centos-8}-ansible:latest
+  - name: linux
+    image: diodonfrost/${distribution:-ansible-centos:8}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: yes
