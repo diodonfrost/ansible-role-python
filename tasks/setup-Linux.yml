@@ -54,6 +54,8 @@
   shell: "make PROFILE_TASK='-m test.regrtest --pgo -j{{ make_num_threads }}' -j{{ make_num_threads }} && make altinstall"
   args:
     chdir: "/tmp/Python-{{ python_version }}"
+  async: 180000
+  poll: 60
   when: command_result.rc > 0
 
 - name: Linux | Clean dependency use for python compilation

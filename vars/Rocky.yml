@@ -1,0 +1,16 @@
+---
+package_requirements:
+  - bzip2-devel
+  - gcc
+  - gcc-c++
+  - gdbm-devel
+  - make
+  - libuuid-devel
+  - ncurses-devel
+  - libffi-devel
+  - openssl-devel
+  - readline-devel
+  - sqlite-devel
+  - tk-devel
+  - xz-devel
+  - zlib-devel
